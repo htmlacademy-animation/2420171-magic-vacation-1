@@ -1,3 +1,12 @@
+@keyframes moveIn {
+  from {
+    transform: scale(1, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+
 .screen {
   position: relative;
   display: flex;
@@ -360,4 +369,32 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+.transition-screen{
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: $c-dark;
+  transform: scale(1, 0);
+  transform-origin: bottom;
+  transition: transform .4s;
+}
+
+.screen.screen--prizes {
+  z-index: 0;
+}
+
+.animate-forwards {
+  animation: moveIn .3s ease 0s;
+  animation-fill-mode: forwards;
+}
+
+.screen.screen--prizes.active ~ .animate-forwards {
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
 }

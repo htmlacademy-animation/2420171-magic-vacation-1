@@ -1,4 +1,6 @@
 import throttle from 'lodash/throttle';
+const screenPrizes = document.querySelector(`.screen--prizes`);
+const transitionScreen = document.querySelector(`.transition-screen`);
 
 export default class FullPageScroll {
   constructor() {
@@ -51,15 +53,25 @@ export default class FullPageScroll {
     this.emitChangeDisplayEvent();
   }
 
-  changeVisibilityDisplay() {
+  handleScreenActive() {
     this.screenElements.forEach((screen) => {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    this.screenElements[this.activeScreen].classList.add(`active`);
+  }
+
+  changeVisibilityDisplay() {
+    if (this.screenElements[this.activeScreen] === screenPrizes) {
+      transitionScreen.classList.add(`animate-forwards`);
+      setTimeout(() => {
+        this.handleScreenActive();
+      }, 400);
+    } else {
+      transitionScreen.classList.remove(`animate-forwards`);
+      this.handleScreenActive();
+    }
   }
 
   changeActiveMenuItem() {
