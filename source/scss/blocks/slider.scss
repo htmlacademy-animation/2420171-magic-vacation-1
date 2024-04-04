@@ -282,7 +282,7 @@
 .swiper-slide-active .slider__item-text{
   opacity: 1;
   transform: translateX(0);
-  transition: opacity .3s ease, transform .3s linear;
+  transition: fadeIn .3s ease, transform .3s linear;
   transition-delay: .3s;
 }
 
@@ -290,7 +290,7 @@
   .swiper-slide-next .slider__item-text{
     opacity: 1;
     transform: translateX(0);
-    transition: opacity .3s ease, transform .3s linear;
+    transition: fadeIn .3s ease, transform .3s linear;
     transition-delay: .8s;
   }
 }
