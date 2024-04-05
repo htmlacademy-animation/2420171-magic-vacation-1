@@ -10,6 +10,9 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import main from "./modules/main";
 
+// animation
+import textAnimationMove from "./animation/text-animation-move";
+
 // init modules
 main();
 mobileHeight();
@@ -20,6 +23,7 @@ chat();
 result();
 form();
 social();
+textAnimationMove();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();

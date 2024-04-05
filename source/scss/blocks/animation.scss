@@ -1,0 +1,135 @@
+@keyframes moveFlamingo {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(30px) rotate(-5deg);
+  }
+}
+
+@keyframes leafGreen {
+  from {
+    transform: rotate(-18deg);
+  }
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes leafBlue2 {
+  from {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(3deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes widthInRight {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  33%{
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+.text__word {
+  display: inline-flex;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.text__word > span {
+  display: inline-flex;
+  transform: translate3d(0, 200%, 0);
+  white-space-collapse: break-spaces;
+}
+
+.text-animation-move .text__word > span {
+  transform: translate3d(0, 0, 0);
+  line-height: normal;
+}
+
+/* page game - result */
+.body-loaded .screen--result.screen--show{
+  .result__images{
+    .leaf-green,
+    .leaf-blue-1,
+    .leaf-blue-2{
+      opacity: 1;
+    }
+    .flamingo{
+      transform: translateX(-50%) translateY(0) rotate(0deg);
+      animation: moveFlamingo 2.5s ease .5s infinite;
+      opacity: 1;
+    }
+    .suitcase{
+      transform: translate3d(-50%, 0, 0) scale(1);
+    }
+    .leaf-green{
+      animation: leafGreen 2.5s ease .5s forwards;
+    }
+    .leaf-blue-1{
+      animation: leafGreen 2s ease .4s forwards;
+    }
+    .leaf-blue-2{
+      animation: leafBlue2 2.5s ease .5s forwards;
+    }
+  }
+
+  .form__field{
+    animation: fadeIn 1s ease 1s forwards;
+    width: 100%;
+  }
+
+  .form__field2::after{
+    animation: widthInRight .5s ease .5s forwards;
+  }
+
+  .form__button span{
+    animation: fadeIn 1.5s ease .5s forwards;
+  }
+
+  .form__button{
+    animation: fadeIn .2s ease .5s forwards;
+  }
+}
