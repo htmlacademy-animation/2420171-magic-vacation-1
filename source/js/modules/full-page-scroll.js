@@ -60,6 +60,7 @@ export default class FullPageScroll {
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     this.screenElements[this.activeScreen].classList.add(`active`);
+    document.body.setAttribute('data-screen', this.screenElements[this.activeScreen].id);
   }
 
   changeVisibilityDisplay() {
